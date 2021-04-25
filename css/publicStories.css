@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eae2b7;
+}
+
+/* hamburger menu */
+.menu-toggle{
+    display: none;
+    position: relative;
+    height: 20px;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height:28px;
+    opacity: 0;
+    left: -6px;
+    top:-3px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    transform: scale(0);
+}
+
+/* navbar */
+nav{
+    display: flex;
+    background-color: #003049;
+    justify-content: space-between;
+    /* padding: 20px 0; */
+    height: 60px;
+    padding: 0 60px;
+    align-items: center;
+}
+
+/* nav .logo{
+    width: 2cm;
+    height: auto;
+} */
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 45%;
+    justify-content: space-between;
+    
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 0.85em;
+}
+
+nav ul li a:hover{
+    color:#eae2b7;
+}
+
+.container {
+display: flex;
+justify-content:space-evenly;
+padding: 40px 0;
+width: 100%;
+}
+
+.storiesContainer {
+    background-color: #fcbf49;
+    padding: 20px;
+    width: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.stories{
+    background-color: white;
+    height: auto;
+    width: 80%;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.stories>* {
+    margin-bottom: 10px;
+}
+
+.stories p .storiesContainer{
+    width: 80%;
+    margin: 0 10px;
+    text-align: left;
+}
+.dateAndLikes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 0.8em;
+}
+
+.dp-potrait {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+  
+.dp-potrait img {
+    width: 100%;
+    height: auto;
+}
+
+.dp-landscape {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+  
+.dp-landscape img {
+    height: 100%;
+    width: auto;
+    margin-left: -25%;
+}
+
+/* side section */
+.sideSection{
+    display: flex;
+    flex-direction: column;
+}
+
+/* create stories */
+.createStories{
+    background-color: #fcbf49;
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.createStories > div{
+    display: flex;
+    flex-direction: column;
+}
+
+.createStories > div > h4{
+    margin-bottom: 10px;
+}
+
+.createStories > div > input{
+    padding: 8px;
+    border-radius: 5px;
+    border: 0;
+}
+
+.createStories > div > input::placeholder{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* gallery */
+.publicStoriesGallery{
+    background-color: #fcbf49;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+}
+
+/* responsive breakpoint */
+/* tablet */
+@media screen and (max-width: 768px) {
+    .container{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .container> *{
+        width: 80%;
+    }
+    .sideSection{
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .sideSection > *{
+        width: 100%;
+        
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 576px) {
+
+    nav ul, a{
+        display: none;
+    }
+    .menu-toggle{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
