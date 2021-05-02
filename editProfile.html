@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryte - Edit Profile</title>
+    <link rel="stylesheet" href="css/editProfile.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/rytelogo.png" alt="" width="50px">
+        </div>
+
+        <ul class="basic">
+            <li class="active"><a href="publicStories.html"><img src="images/opinion.svg" alt="" width = "40px" ></a></li>
+            <li><a  href="myStories.html"><img src="images/chat.svg" alt="" width = "35px" ></a></li>
+            <li><a  href="pofile.html"><img src="images/user.svg" alt="" width = "35px" ></a></li>
+    
+        </ul>
+        
+        <a class="logOut" href="#">
+            <img src="images/logout.svg"  alt="" width = "35px">
+        </a>
+
+        <ul class="resp">
+            <li><a href="publicStories.html">Public Story</a></li>
+            <li><a href="myStories.html">My Story</a></li>
+            <li><a href="pofile.html">Profile</a></li>
+            <li><a href="loginpage.html" class="logout-btn">Log Out</a></li>
+        </ul>
+
+        <div class="menu-toggle">
+            <input type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>        
+    </nav>
+
+    <div class="container">
+        <div class="editProfile-container">
+            
+            <h4 style="color: #003049; font-size: 2em;">  <i class="fas fa-cog"></i> </h4> 
+            <br>
+            <h5 style="font-size: 1.4em; color: #003049;">
+                Edit Youre Profile
+            </h5>
+            <br>
+            <div class="dp-potrait">
+                <img src="images/dp.svg" alt="">
+            </div>
+            <br>
+            <h4 style="font-size: 1.2em; color: black;">
+                Clara Laura
+            </h4>
+            <br>
+            
+            <br>
+            <form action="#">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="buttons">
+                    <input type="button" value="CANCEL" name="cancel-btn" id="cancel-btn">
+                    <input type="button" value="CHANGE" name="change-btn" id="change-btn">
+                </div>
+                
+            </form>
+    
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>

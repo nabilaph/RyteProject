@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
-    <title>Ryte - Write Your Stories</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-
+    <title>Ryte - Edit My Story</title>
+    <link rel="stylesheet" href="css/editMyStories.css">
 </head>
 <body>
     <nav>
@@ -41,8 +39,33 @@
         </div>        
     </nav>
 
-    <script src="js/resp_nav.js">
-        
-    </script>
+    <div class="container">
+        <div class="editMyStories-container">
+            
+            <h4 style="color: #003049; font-size: 2em;">  <i class="fas fa-cog"></i> </h4> 
+            <br>
+            <h5 style="font-size: 1.4em; color: #003049;">
+                Edit My Stories
+            </h5>
+            <br>
+            <div class="stories">
+                <div class="dp-potrait">
+                    <img src="images/dp.svg" alt="">
+                </div>
+    
+                <h5 style="color: black;">
+                    Clara Laura
+                </h5>
+                <hr style="width: 70%; text-align: center; background-color: #838b8f;">
+                <input type="text" placeholder="Change youre story here..." value="Hey, there! this is my first story. ">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="CANCEL" name="cancel-btn" id="cancel-btn">
+                    <input type="button" value="POST" name="post-btn" id="post-btn">
+                </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>

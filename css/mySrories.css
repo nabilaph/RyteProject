@@ -125,6 +125,7 @@ nav .resp li .logout-btn:hover{
 /* container */
 .container {
 display: flex;
+flex-direction: row;
 justify-content:space-evenly;
 padding: 40px 0;
 width: 100%;
@@ -235,8 +236,7 @@ width: 100%;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* gallery */
-.publicStoriesGallery {box-sizing:border-box}
+.publicStoriesGallery{box-sizing:border-box}
 
 /* Slideshow container */
 .slideshow-container {
@@ -330,7 +330,7 @@ width: 100%;
   from {opacity: .4}
   to {opacity: 1}
 }
-
+ 
 /* btn scroll to top */
 #toTop{
     position: fixed;
@@ -351,6 +351,7 @@ width: 100%;
     background: #ac2121;
 }
 
+
 /* responsive breakpoint */
 /* tablet */
 @media screen and (max-width: 768px) {
@@ -361,7 +362,7 @@ width: 100%;
     nav .resp{
         width:55%;
     }
-
+    
     .container{
         flex-direction: column-reverse;
         align-items: center;

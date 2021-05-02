@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryte - My Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/rytelogo.png" alt="" width="50px">
+        </div>
+
+        <ul class="basic">
+            <li></li><a href="publicStories.html"><img src="images/opinion.svg" alt="" width = "40px" ></a></li>
+            <li><a  href="myStories.html"><img src="images/chat.svg" alt="" width = "35px" ></a></li>
+            <li id="active"><a  href="pofile.html"><img src="images/user.svg" alt="" width = "35px" ></a></li>
+    
+        </ul>
+        
+        <a class="logOut" href="#">
+            <img src="images/logout.svg"  alt="" width = "35px">
+        </a>
+
+        <ul class="resp">
+            <li><a href="publicStories.html">Public Story</a></li>
+            <li><a href="myStories.html">My Story</a></li>
+            <li><a href="pofile.html">Profile</a></li>
+            <li><a href="loginpage.html" class="logout-btn">Log Out</a></li>
+        </ul>
+
+        <div class="menu-toggle">
+            <input type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>        
+    </nav>
+
+    <div class="container">
+        <div class="profile-container">
+            <h4>Youre Profile</h4>
+            <div class="dp-potrait">
+                <img src="images/dp.svg" alt="">
+            </div>
+
+            <h5>
+                Clara Laura
+            </h5>
+            <br>
+            <hr style="width: 100%; text-align: center; background-color: black;">
+            <br>
+            <form action="#">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="button" value="Edit Profile" name="editProfile-btn" id="editProfile-btn">
+            </form>
+    
+        </div>
+        <div class="sideSection">
+            <div class="createStories">
+                <img src="images/createStories.svg" alt="" width="55px">
+                <div>
+                 <h4>
+                     Create Youre Own Stories!
+                 </h4>
+                 <input type="text" placeholder="What's New?..."> 
+                </div>
+             </div>
+             <div class= "insightProfile" >
+                <div class="post">
+                    <h3> 2 </h3>
+                    <p> Posts </p>
+                </div>
+                <div class="followers">
+                    <h3> 2.123 </h3>
+                    <p> Followers </p>
+                </div>
+                <div class="likes">
+                    <h3> 5.110 </h3>
+                    <p> Likes </p>
+                </div>
+             </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

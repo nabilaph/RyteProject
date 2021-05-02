@@ -304,6 +304,10 @@ footer ul li a{
         padding: 0px 40px;
     }
 
+    nav ul, nav .menu-toggle, nav .logo > img{
+        z-index: 999;
+    }
+
     nav ul{
         position: absolute;
         width: 100%;
@@ -315,7 +319,6 @@ footer ul li a{
         align-items: center;
         height: 80vh;
         justify-content:space-evenly;
-        z-index: 1;
         transform: translateY(-100%);
         transition: all 1s;
     }
