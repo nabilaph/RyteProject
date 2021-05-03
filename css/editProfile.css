@@ -263,4 +263,8 @@ nav .resp li .logout-btn:hover{
         flex-direction: column;
         justify-content: space-between;
     }
+
+    .editProfile-container{
+        margin: 0 30px 0 30px;
+    }
 }

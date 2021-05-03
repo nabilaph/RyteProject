@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryte - My Profile</title>
+    <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
     <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
@@ -14,7 +15,7 @@
         </div>
 
         <ul class="basic">
-            <li></li><a href="publicStories.html"><img src="images/opinion.svg" alt="" width = "40px" ></a></li>
+            <li><a href="publicStories.html"><img src="images/opinion.svg" alt="" width = "40px" ></a></li>
             <li><a  href="myStories.html"><img src="images/chat.svg" alt="" width = "35px" ></a></li>
             <li id="active"><a  href="pofile.html"><img src="images/user.svg" alt="" width = "35px" ></a></li>
     
@@ -41,7 +42,8 @@
 
     <div class="container">
         <div class="profile-container">
-            <h4>Youre Profile</h4>
+            <h4>My Profile</h4>
+            <br>
             <div class="dp-potrait">
                 <img src="images/dp.svg" alt="">
             </div>
@@ -52,10 +54,10 @@
             <br>
             <hr style="width: 100%; text-align: center; background-color: black;">
             <br>
-            <form action="#">
-                <input type="text" name="username" id="username" placeholder="Username">
-                <input type="email" name="email" id="email" placeholder="Email">
-                <input type="password" name="password" id="password" placeholder="Password">
+            <form action="editProfile.html">
+                <input type="text" name="username" id="username" value="Username">
+                <input type="email" name="email" id="email" value="Email">
+                <input type="password" name="password" id="password" value="Password">
                 <input type="button" value="Edit Profile" name="editProfile-btn" id="editProfile-btn">
             </form>
     
@@ -88,5 +90,6 @@
 
     </div>
 
+    <script src="js/resp_nav.js"></script>
 </body>
 </html>
