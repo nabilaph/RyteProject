@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
     <link rel="stylesheet" href="css/registerpage.css">
     <title>Ryte - Log In</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/User.js"></script>
 </head>
 <body>
     <div class="container" style="flex-direction: row;">
@@ -18,10 +20,13 @@
 
         <div class="register-container">
             <h4 style="font-size: 2em;">LOG IN</h4>
-            <form action="publicStories.html">
-                <input type="text" name="username" id="username" placeholder="Username">
-                <input type="password" name="password" id="password" placeholder="Password">
-                <input type="submit" value="Log In" name="register-btn" id="register-btn">
+            <form ng-app="" ng-controller="UserController" name="login-form" ng-submit="checkUser(username, password)">
+                <input type="text" name="username" ng-model="username" id="username" placeholder="Username" required>
+                <input type="password" name="password" ng-model="password" id="password" placeholder="Password" required>
+                
+                <input type="submit" value="Log In" name="login-btn" id="login-btn"
+                ng-disabled="regis-form.username.$dirty && regis-form.username.$invalid ||  
+                regis-form.password.$dirty && regis-form.password.$invalid">
             </form>
     
             <a href="registerpage.html">Create an Account</a>
