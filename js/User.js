@@ -28,17 +28,21 @@ function UserController ($scope){
                 });
                 localStorage.setItem("userList", JSON.stringify($scope.userList));
                 window.location.href = "loginpage.html";
-              }
-              
+              }            
         
     }
 
     $scope.checkUser = function(username, password){
-        var usernameLogIn = username;
-        var passwordLogIn = password;
-        var dataExisted = JSON.parse(localStorage.getItem('userList'));
+        let usernameLogIn = username;
+        let passwordLogIn = password;
+        let dataExisted = JSON.parse(localStorage.getItem('userList'));
 
-        var item = dataExisted.find(i=> i.username === usernameLogIn && i.password === passwordLogIn);
+        let item = dataExisted.find(i=> i.username === usernameLogIn && i.password === passwordLogIn);
+
+        // console.log(item.username);
+        // console.log(item.password);
+        console.log(item);
+
         if(item !== undefined){
             $scope.userLogin.push({
                 username: username,
@@ -46,7 +50,11 @@ function UserController ($scope){
             });
             localStorage.setItem("userLogin", JSON.stringify($scope.userLogin));
             window.location.href = "publicStories.html";
-        }else{
+        }
+        // else if (usernameLogIn !== item.username || passwordLogIn !== item.password){
+        //     alert("Username or Password incorrect!")
+        // }
+        else{
             alert("You have to register first!")
         }
 
@@ -59,15 +67,36 @@ function UserController ($scope){
         let uname = logindet[0].username;
         let item = userDet.find(i=> i.username === uname);
 
-        console.log(logindet[0]);
-        console.log(uname);
-        console.log(item);
-
         $scope.profileDet = item;
+        $scope.fullname = $scope.profileDet.fullname;
+        $scope.username = $scope.profileDet.username;
+        $scope.email = $scope.profileDet.email;
+        $scope.password = $scope.profileDet.password;
         
     }
 
     $scope.updateProfile = function(){
+        var c = confirm('Are you sure want to update your profile?')
+        if(c){
+            let userdata = JSON.parse(localStorage.getItem('userLogin'));
+            let cUsers = JSON.parse(localStorage.getItem('userList'));
+            let idx = cUsers.findIndex(item => item.username === userdata[0].username && item.password === userdata[0].password);
+
+            console.log($scope.fullname);
+            console.log(userdata);
+            console.log(idx);
+            console.log(cUsers);
+
+
+            cUsers[idx].fullname = $scope.fullname;
+            cUsers[idx].username = $scope.username;
+            cUsers[idx].email = $scope.email;
+            cUsers[idx].password = $scope.password;
+
+            localStorage.setItem("userList", JSON.stringify(cUsers));
+            alert("Your Profile is successfully updated!");
+            window.location.href = "pofile.html";
+        }
         
     }
 

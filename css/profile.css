@@ -218,18 +218,18 @@ nav .resp li .logout-btn:hover{
     background-color: #fcbf49;
     display: flex;
     flex-direction: row;
-    /* width: 400px; */
+    max-width: 1000px;
     height: auto;
-    padding: 15px;
-    /* justify-content: center; */
-    /* align-items: center; */
+    padding: 20px 30px;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
 }
 
 .createStories > div{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 300px;
 }
 
 .createStories > div > form{

@@ -23,7 +23,7 @@
             <form ng-app="" ng-controller="UserController" name="login-form" ng-submit="checkUser(username, password)">
                 <input type="text" name="username" ng-model="username" id="username" placeholder="Username" required>
                 <input type="password" name="password" ng-model="password" id="password" placeholder="Password" required>
-                
+                <i class="far fa-eye" id="togglePassword"></i>
                 <input type="submit" value="Log In" name="login-btn" id="login-btn"
                 ng-disabled="regis-form.username.$dirty && regis-form.username.$invalid ||  
                 regis-form.password.$dirty && regis-form.password.$invalid">
@@ -34,5 +34,7 @@
         </div>
         
     </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>

@@ -212,7 +212,7 @@ width: 100%;
     flex-direction: row;
     max-width: 1000px;
     height: auto;
-    padding: 20px 10px;
+    padding: 20px 30px;
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
@@ -221,20 +221,42 @@ width: 100%;
 .createStories > div{
     display: flex;
     flex-direction: column;
-    max-width : 400px;
+    width: 300px;
+}
+
+.createStories > div > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.createStories > div > form > #post-btn{
+    width: 80px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    background-color: #d62828;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+createStories > div > form > #content{
+    max-width: 400px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .createStories > div > h4{
     margin-bottom: 10px;
 }
 
-.createStories > div > input{
+.createStories > div input{
     padding: 8px;
     border-radius: 5px;
     border: 0;
+    width: auto;
 }
 
-.createStories > div > input::placeholder{
+.createStories > div input::placeholder{
     font-family: 'Montserrat', sans-serif;
 }
 

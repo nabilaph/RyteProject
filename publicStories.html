@@ -7,6 +7,7 @@
     <title>Ryte - Public Stories</title>
     <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
     <link rel="stylesheet" href="css/publicStories.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/User.js"></script>
     <script src="js/Stories.js"></script>
@@ -24,7 +25,7 @@
     
         </ul>
         
-        <a href="" class="logOut" ng-click="logOut()">
+        <a href="" class="logOut" ng-click="$event.preventDefault();logOut()">
             <img src="images/logout.svg"  alt="" width = "35px">
         </a>
 
@@ -49,7 +50,7 @@
                     There is no stories here...
                 </h4>
             </div>
-            <div class="stories" ng-if="viewAllStories()" ng-repeat="x in storiesList">
+            <div class="stories" ng-if="viewAllStories()" ng-repeat="x in storiesList | orderBy: '-date'">
                 <div class="dp-potrait">
                     <img src="images/dp.svg" alt="">
                 </div>
@@ -57,10 +58,7 @@
                 <h4>
                     {{x.username}}
                 </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
+                
                 <hr style="width: 70%; text-align: center; background-color: #838b8f;">
                 <p class="storiesContent">
                     {{x.storiesContent}}
@@ -69,132 +67,26 @@
                     <p>
                         {{x.date | date:'yyyy-MM-dd'}}
                     </p> 
-                    <p>
-                        <i class="far fa-heart"></i> {{x.likesCount}}
+                    <p style="font-size:1.4em">
+                        <i class="fas fa-heart" ng-click="likeStories(x)" style="cursor:pointer; color:#808080"></i> {{x.likesCount}}
                     </p>
                  </div>
     
             </div>
-            <!-- <div class="stories">
-                <div class="dp-potrait">
-                    <img src="images/dp2.svg" alt="">
-                </div>
-    
-                <h4>
-                    Henry Lau
-                </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
-                <hr style="width: 70%; text-align: center; background-color: #838b8f;">
-                <p class="storiesContent">
-                    Hey, there! Yesterday was a tiring day for me. 
-                    It was my exam day! Ugh, i don't know what  
-                    my result. :(
-                </p>
-                 <div class="dateAndLikes">
-                    <p>
-                        Jan 28, 2021
-                    </p> 
-                    <p>
-                        <i class="far fa-heart"></i> 516
-                    </p>
-                 </div>
-    
-            </div>
-            <div class="stories">
-                <div class="dp-landscape">
-                    <img src="images/dp3.svg" alt="">
-                </div>
-    
-                <h4>
-                    Clara Laura
-                </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
-                <hr style="width: 70%; text-align: center; background-color: #838b8f;">
-                <p class="storiesContent">
-                    Hey, there! this is my first story. 
-                </p>
-                 <div class="dateAndLikes">
-                    <p>
-                        Jan 28, 2021
-                    </p> 
-                    <p>
-                        <i class="far fa-heart"></i> 516
-                    </p>
-                 </div>
-    
-            </div>
-            <div class="stories">
-                <div class="dp-landscape">
-                    <img src="images/dp4.svg" alt="">
-                </div>
-    
-                <h4>
-                    Clara Laura
-                </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
-                <hr style="width: 70%; text-align: center; background-color: #838b8f;">
-                <p class="storiesContent">
-                    Hey, there! this is my first story. 
-                </p>
-                 <div class="dateAndLikes">
-                    <p>
-                        Jan 28, 2021
-                    </p> 
-                    <p>
-                        <i class="far fa-heart"></i> 516
-                    </p>
-                 </div>
-    
-            </div>
-            <div class="stories">
-                <div class="dp-landscape">
-                    <img src="images/dp5.svg" alt="">
-                </div>
-    
-                <h4>
-                    Clara Laura
-                </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
-                <hr style="width: 70%; text-align: center; background-color: #838b8f;">
-                <p class="storiesContent">
-                    Hey, there! this is my first story. 
-                </p>
-                 <div class="dateAndLikes">
-                    <p>
-                        Jan 28, 2021
-                    </p> 
-                    <p>
-                        <i class="far fa-heart"></i> 516
-                    </p>
-                 </div>
-    
-            </div> -->
+            
         </div>
     
         <div class="sideSection">
             <div class="createStories">
                 <img src="images/createStories.svg" alt="" width="55px">
                 <div>
-                 <h4>
-                     Create Youre Own Stories!
-                 </h4>
-                 <form name="create-form" ng-submit="addStories()">
-                    <input type="text" placeholder="What's New?..." ng-model="storiesContent"> 
-                    <input type="submit" value="Post">
-                 </form>
-                
+                    <h4>
+                        Create Youre Own Stories!
+                    </h4>
+                    <form action="" ng-submit="addStories()">
+                        <input type="text" ng-model="storiesContent" id = "content" placeholder="What's New?..."> 
+                        <input type="submit" value="Post" id="post-btn">
+                    </form>
                 </div>
              </div>
              <div class= "publicStoriesGallery" >
@@ -241,7 +133,7 @@
     </button>
    
     <script src="js/scrollToTop.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
     <script src="js/resp_nav.js"></script>
     <script src="js/gallery.js"></script>
 </body>

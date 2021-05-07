@@ -7,7 +7,6 @@ function StoriesController ($scope){
     $scope.userLogin = localStorage.getItem('userLogin');
 
     $scope.likesCount = 0;
-    $scope.followersCount = 0;
     $scope.postCount = 0;
 
     $scope.myStories = [];
@@ -28,19 +27,17 @@ function StoriesController ($scope){
         var username = userDet[0].username;
 
         var currentDate = new Date();
-        // var cDate = formatDate(currentDate, 'yyyy-MM-dd', 'en-US');
+        let str = JSON.parse(localStorage.getItem('storiesList'));
 
-        console.log(username);
-
-        $scope.storiesList.push({
+        str.push({
             username: username,
             storiesContent : $scope.storiesContent,
             date : currentDate,
             likesCount : $scope.likesCount
         });
-        localStorage.setItem("storiesList", JSON.stringify($scope.storiesList));
+        localStorage.setItem("storiesList", JSON.stringify(str));
         alert("Your stores is posted!");
-        // window.location.href = "publicStories.html";
+        $scope.storiesContent = "";
         viewAllStories();
 
     }
@@ -55,16 +52,8 @@ function StoriesController ($scope){
 
         let item = storiesDet.find(i=> i.username === uname);
 
-        console.log(uname);
-
         if(item !== undefined){
-        //    storiesDet.forEach(i => {
-        //         let items = storiesDet.find(i => i.username === uname);
-        //         stories.add(items[i]);
-        //       });
-        //       $scope.myStories = stories;
-        //       console.log($scope.myStories);
-
+        
             storiesDet.forEach((x)=>{
                 if(x.username ===uname){
                     stories.push({
@@ -76,44 +65,85 @@ function StoriesController ($scope){
                 }
             });
             $scope.myStories = stories;
-            console.log($scope.myStories);
             return true;
         }else{
             return false;
         }
     }
 
-    $scope.editStories = function(){
-        let userlogin = JSON.parse(localStorage.getItem('userLogin'));
-        let userdet =JSON.parse(localStorage.getItem('userList'));
-        let uname = userlogin[0].username; 
-        let userDet = userdet.find(i => i.username === uname);
-        let selected_index =  $(this).userDet("id"); 
-        let storiesSelected = storiesList.find(i => i.username === uname);
-        $scope.storiesList[selected_index] = JSON.stringify({
-			username: $scope.username,
-            storiesContent : $scope.storiesContent,
-            date : currentDate,
-            likesCount : $scope.likesCount
-            });//Edit Data Yang Dipilih
-        localStorage.setItem("storiesList", JSON.stringify(storiesList));
-        alert("The data was edited.")
-    }
-
-    $scope.getIndex = function(){
-
-    }
-
-    $scope.deleteStories = function(){
-        var c = confirm('Apakah Yakin Data Ini Akan Di Hapus?')
+    $scope.deleteStories = function(x){
+        var c = confirm('Are you sure want to delete this story?')
         if(c)
         {
-            let selected_index =  $(this).data("id");
-            $scope.storiesList.splice(selected_index, 1);
-            localStorage.setItem("storiesList", JSON.stringify($scope.storiesList));
-            alert("Stroy deleted.");
-            viewMyStories();
+            let oldStories = x;
+            let cStories = JSON.parse(localStorage.getItem('storiesList'));
+            let idx = cStories.findIndex(item => item.username === oldStories.username && item.storiesContent === oldStories.storiesContent
+                && item.date === oldStories.date
+                && item.likesCount === oldStories.likesCount);
+            cStories.splice(idx,1);
+            
+            localStorage.setItem("storiesList", JSON.stringify(cStories));
+
+            let contoh= JSON.parse(localStorage.getItem('storiesList'));
+            console.log(oldStories);
+            console.log(cStories);
+            console.log(idx);
+
+            alert("Story deleted.");
+           
         }
 	
+    }
+
+    $scope.likeStories = function(x){
+        const likeBtn = document.querySelector('.fas.fa-heart');
+
+        let likesdata = x;
+        let cLikes = JSON.parse(localStorage.getItem('storiesList'));
+        let idx = cLikes.findIndex(item => item.username === likesdata.username && item.storiesContent === likesdata.storiesContent
+                && item.date === likesdata.date
+                && item.likesCount === likesdata.likesCount);
+
+        if(likeBtn.classList.contains('liked')){
+
+            cLikes[idx].likesCount = cLikes[idx].likesCount - 1;
+            localStorage.setItem("storiesList", JSON.stringify(cLikes));
+
+            likeBtn.style.color = "#808080";
+            likeBtn.classList.remove("liked");
+            alert("You unlike the post :(");
+        }else{
+                            
+            cLikes[idx].likesCount = cLikes[idx].likesCount + 1;
+            localStorage.setItem("storiesList", JSON.stringify(cLikes));
+
+            likeBtn.style.color = "red";
+            likeBtn.classList.add("liked");
+            alert("You like the post!");
+        }
+        
+    }
+
+    $scope.countInsight = function(){
+        let stories = [];
+        let likeCount = 0;
+        let userDet = JSON.parse(localStorage.getItem('userLogin'));
+        let uname = userDet[0].username; 
+        let storiesDet = JSON.parse(localStorage.getItem('storiesList'));
+
+        storiesDet.forEach((x)=>{
+            if(x.username ===uname){
+                stories.push({
+                    username: x.username,
+                    storiesContent : x.storiesContent,
+                    date : x.date,
+                    likesCount : x.likesCount
+                });
+                likeCount = likeCount + x.likesCount;
+            }
+        });
+
+        $scope.likesCount = likeCount;
+        $scope.postCount = stories.length;
     }
 }

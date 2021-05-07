@@ -32,7 +32,7 @@
             <li><a href="publicStories.html">Public Story</a></li>
             <li><a href="myStories.html">My Story</a></li>
             <li><a href="pofile.html">Profile</a></li>
-            <li><a href="loginpage.html" class="logout-btn" href ng-click="logOut()">Log Out</a></li>
+            <li><a href="" ng-click="logOut()" class="logout-btn">Log Out</a></li>
         </ul>
 
         <div class="menu-toggle">
@@ -55,18 +55,13 @@
             <div class="dp-potrait">
                 <img src="images/dp.svg" alt="">
             </div>
-            <br>
-            <h4 style="font-size: 1.2em; color: black;">
-                {{profileDet.fullname}}
-            </h4>
-            <br>
             
             <br>
             <form name="editProfile-form" ng-submit="updateProfile()">
-                <input type="text" name="fullname" ng-model="fullname" id="fullname" placeholder="Full Name" value="{{profileDet.fullname}}">
-                <input type="text" name="username" ng-model="username" id="username" placeholder="Username" value="{{profileDet.username}}" required>
-                <input type="email" name="email" ng-model="email" id="email" placeholder="Email" value="{{profileDet.email}}" required>
-                <input type="password" name="password" ng-model="password" id="password" placeholder="Password" value="{{profileDet.password}}" required>
+                <input type="text" name="fullname" id="fullname" placeholder="Full Name" ng-model="fullname">
+                <input type="text" name="username" id="username" placeholder="Username" ng-model="username" required>
+                <input type="email" name="email" id="email" placeholder="Email" ng-model="email" required>
+                <input type="password" name="password" id="password" placeholder="Password" ng-model="password" required>
                 
                 <div class="buttons">
                     <input type="button" value="CANCEL" name="cancel-btn" id="cancel-btn" ng-click="pofile.html">

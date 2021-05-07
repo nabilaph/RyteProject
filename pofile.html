@@ -24,7 +24,7 @@
     
         </ul>
         
-        <a class="logOut" href="#" >
+        <a class="logOut" href="" ng-click="logOut()">
             <img src="images/logout.svg"  alt="" width = "35px">
         </a>
 
@@ -32,7 +32,7 @@
             <li><a href="publicStories.html">Public Story</a></li>
             <li><a href="myStories.html">My Story</a></li>
             <li><a href="pofile.html">Profile</a></li>
-            <li><a href="loginpage.html" class="logout-btn">Log Out</a></li>
+            <li><a href="" ng-click="logOut()" class="logout-btn">Log Out</a></li>
         </ul>
 
         <div class="menu-toggle">
@@ -51,17 +51,16 @@
                 <img src="images/dp.svg" alt="">
             </div>
 
-            <h5>
-                {{profileDet.fullname}}
+            <h5>{{fullname}}
             </h5>
             <br>
             <hr style="width: 100%; text-align: center; background-color: black;">
             <br>
-            <form ng-submit="editProfile.html">
-                <input type="text" name="username" id="username" value="{{profileDet.username}}">
-                <input type="email" name="email" id="email" value="{{profileDet.email}}">
-                <input type="password" name="password" id="password" value="{{profileDet.password}}">
-                <input type="submit" value="Edit Profile" name="editProfile-btn" id="editProfile-btn">
+            <form action="editProfile.html">
+                <input type="text" name="username" id="username" ng-model="username" ng-disabled="true">
+                <input type="email" name="email" id="email" ng-model="email" ng-disabled="true">
+                <input type="password" name="password" id="password" ng-model="password" ng-disabled="true">
+                <input type="submit" value="Edit Profile" href="editProfile.html" name="editProfile-btn" id="editProfile-btn">
             </form>
     
         </div>
@@ -78,17 +77,13 @@
                  </form>
                 </div>
              </div>
-             <div class= "insightProfile" >
+             <div class= "insightProfile" ng-init="countInsight()">
                 <div class="post">
-                    <h3> 2 </h3>
+                    <h3> {{postCount}} </h3>
                     <p> Posts </p>
                 </div>
-                <div class="followers">
-                    <h3> 2.123 </h3>
-                    <p> Followers </p>
-                </div>
                 <div class="likes">
-                    <h3> 5.110 </h3>
+                    <h3> {{likesCount}} </h3>
                     <p> Likes </p>
                 </div>
              </div>

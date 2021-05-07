@@ -7,6 +7,7 @@
     <title>Ryte - My Stories</title>
     <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
     <link rel="stylesheet" href="css/mySrories.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/User.js"></script>
     <script src="js/Stories.js"></script>
@@ -44,12 +45,12 @@
     </nav>
     <div class="container" ng-controller="StoriesController" ng-init="viewMyStories()">
         <div class="storiesContainer">
-            <!-- <div class="stories" ng-if="viewMyStories() != true">
+            <div class="stories" ng-if="viewMyStories() != true">
                 <h4 style="text-align: center;">
                     There is no stories here...
                 </h4>
-            </div> -->
-            <div class="stories" ng-repeat="x in myStories">
+            </div>
+            <div class="stories" ng-repeat="x in myStories | orderBy: '-date'">
                 <div class="dp-potrait">
                     <img src="images/dp.svg" alt="">
                 </div>
@@ -57,68 +58,39 @@
                 <h4>
                    {{x.username}}
                 </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
+                
                 <hr style="width: 70%; text-align: center; background-color: #838b8f;">
                 <p class="storiesContent">
                     {{x.storiesContent}}
                 </p>
-                 <div class="dateAndLikes">
+                 <div  class="dateAndLikes">
                     <p>
-                        {{x.date}}
+                        {{x.date | date:'yyyy-MM-dd'}}
                     </p> 
-                    <p>
-                        <i class="far fa-heart"></i> {{x.likesCount}}
-                        <i class="fas fa-cog"></i>
-                        <i class="fas fa-trash-alt"></i>
+                    <p style="font-size:1.4em">
+                        <i class="fas fa-trash-alt" ng-click="deleteStories(x)" style="cursor:pointer"></i>
+                        <i class="fas fa-heart" ng-click="likeStories(x)" style="cursor:pointer; color:#808080"></i> {{x.likesCount}}
                     </p>
                  </div>
     
             </div>
             
-            <!-- <div class="stories">
-                <div class="dp-potrait">
-                    <img src="images/dp.svg" alt="">
-                </div>
-    
-                <h4>
-                    Clara Laura
-                </h4>
-                <p class="follow">
-                    <i class="fas fa-user-plus"></i>
-                    Follow
-                </p>
-                <hr style="width: 70%; text-align: center; background-color: #838b8f;">
-                <p class="storiesContent">
-                    Hey, there! this is my first story. 
-                </p>
-                 <div class="dateAndLikes">
-                    <p>
-                        Jan 28, 2021
-                    </p> 
-                    <p>
-                        <i class="far fa-heart"></i> 
-                        <i class="fas fa-cog"></i>
-                        <i class="fas fa-trash-alt"></i>
-
-                        
-                    </p>
-                 </div>
-    
-            </div> -->
+           
+               
     </div>
-        <div class="sideSection">
-            <div class="createStories">
-                <img src="images/createStories.svg" alt="" width="55px">
-                <div>
-                 <h4>
-                     Create Youre Own Stories!
-                 </h4>
-                 <input type="text" placeholder="What's New?..."> 
-                </div>
-             </div>
+    <div class="sideSection" ng-controller="StoriesController">
+        <div class="createStories">
+            <img src="images/createStories.svg" alt="" width="55px">
+            <div>
+             <h4>
+                 Create Youre Own Stories!
+             </h4>
+             <form action="" ng-submit="addStories()">
+                <input type="text" ng-model="storiesContent" id = "content" placeholder="What's New?..." required> 
+                <input type="submit" value="Post" id="post-btn">
+             </form>
+            </div>
+         </div>
              <div class= "publicStoriesGallery" >
                 <!-- Slideshow container -->
                 <div class="slideshow-container">
@@ -156,8 +128,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
    
-    <script src="js/scrollToTop.js"></script>   
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="js/resp_nav.js"></script>  
+    <script src="js/scrollToTop.js"></script>  
     <script src="js/gallery.js"></script>
 </body>
 </html>
