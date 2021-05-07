@@ -7,9 +7,12 @@
     <title>Ryte - My Profile</title>
     <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
     <link rel="stylesheet" href="css/profile.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/User.js"></script>
+    <script src="js/Stories.js"></script>
 </head>
-<body>
-    <nav>
+<body ng-app = "">
+    <nav ng-controller="UserController">
         <div class="logo">
             <img src="images/rytelogo.png" alt="" width="50px">
         </div>
@@ -21,7 +24,7 @@
     
         </ul>
         
-        <a class="logOut" href="#">
+        <a class="logOut" href="#" >
             <img src="images/logout.svg"  alt="" width = "35px">
         </a>
 
@@ -41,7 +44,7 @@
     </nav>
 
     <div class="container">
-        <div class="profile-container">
+        <div class="profile-container" ng-controller="UserController" ng-init="displayProfile()" ng-model="profileDet">
             <h4>My Profile</h4>
             <br>
             <div class="dp-potrait">
@@ -49,27 +52,30 @@
             </div>
 
             <h5>
-                Clara Laura
+                {{profileDet.fullname}}
             </h5>
             <br>
             <hr style="width: 100%; text-align: center; background-color: black;">
             <br>
-            <form action="editProfile.html">
-                <input type="text" name="username" id="username" value="Username">
-                <input type="email" name="email" id="email" value="Email">
-                <input type="password" name="password" id="password" value="Password">
-                <input type="button" value="Edit Profile" name="editProfile-btn" id="editProfile-btn">
+            <form ng-submit="editProfile.html">
+                <input type="text" name="username" id="username" value="{{profileDet.username}}">
+                <input type="email" name="email" id="email" value="{{profileDet.email}}">
+                <input type="password" name="password" id="password" value="{{profileDet.password}}">
+                <input type="submit" value="Edit Profile" name="editProfile-btn" id="editProfile-btn">
             </form>
     
         </div>
-        <div class="sideSection">
+        <div class="sideSection" ng-controller="StoriesController">
             <div class="createStories">
                 <img src="images/createStories.svg" alt="" width="55px">
                 <div>
                  <h4>
                      Create Youre Own Stories!
                  </h4>
-                 <input type="text" placeholder="What's New?..."> 
+                 <form action="" ng-submit="addStories()">
+                    <input type="text" ng-model="storiesContent" id = "content" placeholder="What's New?..."> 
+                    <input type="submit" value="Post" id="post-btn">
+                 </form>
                 </div>
              </div>
              <div class= "insightProfile" >

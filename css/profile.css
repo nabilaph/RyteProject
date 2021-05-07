@@ -8,6 +8,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     background-color: #eae2b7;
+    overflow-x :hidden;
 }
 
 /* navbar */
@@ -192,7 +193,7 @@ nav .resp li .logout-btn:hover{
     color: #b97446;
 }
 
-.profile-container input[type=button]{
+.profile-container input[type=submit]{
     background-color: #d62828;
     box-shadow: 0 1px 1px #000;
     border: none;
@@ -217,7 +218,7 @@ nav .resp li .logout-btn:hover{
     background-color: #fcbf49;
     display: flex;
     flex-direction: row;
-    width: 400px;
+    /* width: 400px; */
     height: auto;
     padding: 15px;
     /* justify-content: center; */
@@ -231,25 +232,46 @@ nav .resp li .logout-btn:hover{
     width: 100%;
 }
 
+.createStories > div > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.createStories > div > form > #post-btn{
+    width: 80px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    background-color: #d62828;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+createStories > div > form > #content{
+    max-width: 400px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .createStories > div > h4{
     margin-bottom: 10px;
 }
 
-.createStories > div > input{
+.createStories > div input{
     padding: 8px;
     border-radius: 5px;
     border: 0;
     width: auto;
 }
 
-.createStories > div > input::placeholder{
+.createStories > div input::placeholder{
     font-family: 'Montserrat', sans-serif;
 }
 
 .insightProfile {
     background-color: #fcbf49;
     padding: 15px;
-    width: 400px;
+    /* width: 400px; */
     display: flex;
     justify-content: space-around;
 }

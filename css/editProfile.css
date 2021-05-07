@@ -190,7 +190,7 @@ nav .resp li .logout-btn:hover{
     display : flex;
 }
 
-.editProfile-container input[type=button]{
+.editProfile-container input[type="button"],.editProfile-container input[type="submit"]{
     background-color: #d62828;
     box-shadow: 0 1px 1px #000;
     border: none;

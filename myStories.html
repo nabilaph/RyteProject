@@ -7,9 +7,12 @@
     <title>Ryte - My Stories</title>
     <link rel="shortcut icon" href="images/rytelogo.png" type="image/png" sizes="25x25">
     <link rel="stylesheet" href="css/mySrories.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/User.js"></script>
+    <script src="js/Stories.js"></script>
 </head>
-<body>
-    <nav>
+<body ng-app="">
+    <nav ng-controller="UserController">
         <div class="logo">
             <img src="images/rytelogo.png" alt="" width="50px">
         </div>
@@ -21,7 +24,7 @@
     
         </ul>
         
-        <a class="logOut" href="loginpage.html">
+        <a class="logOut" href="" ng-click="logOut()">
             <img src="images/logout.svg"  alt="" width = "35px">
         </a>
 
@@ -29,7 +32,7 @@
             <li><a href="publicStories.html">Public Story</a></li>
             <li><a href="myStories.html">My Story</a></li>
             <li><a href="pofile.html">Profile</a></li>
-            <li><a href="loginpage.html" class="logout-btn">Log Out</a></li>
+            <li><a href="" ng-click="logOut()" class="logout-btn">Log Out</a></li>
         </ul>
 
         <div class="menu-toggle">
@@ -39,15 +42,20 @@
             <span></span>
         </div>        
     </nav>
-    <div class="container">
+    <div class="container" ng-controller="StoriesController" ng-init="viewMyStories()">
         <div class="storiesContainer">
-            <div class="stories">
+            <!-- <div class="stories" ng-if="viewMyStories() != true">
+                <h4 style="text-align: center;">
+                    There is no stories here...
+                </h4>
+            </div> -->
+            <div class="stories" ng-repeat="x in myStories">
                 <div class="dp-potrait">
                     <img src="images/dp.svg" alt="">
                 </div>
     
                 <h4>
-                    Clara Laura
+                   {{x.username}}
                 </h4>
                 <p class="follow">
                     <i class="fas fa-user-plus"></i>
@@ -55,14 +63,14 @@
                 </p>
                 <hr style="width: 70%; text-align: center; background-color: #838b8f;">
                 <p class="storiesContent">
-                    Hey, there! this is my first story. 
+                    {{x.storiesContent}}
                 </p>
                  <div class="dateAndLikes">
                     <p>
-                        Jan 28, 2021
+                        {{x.date}}
                     </p> 
                     <p>
-                        <i class="far fa-heart"></i> 
+                        <i class="far fa-heart"></i> {{x.likesCount}}
                         <i class="fas fa-cog"></i>
                         <i class="fas fa-trash-alt"></i>
                     </p>
@@ -70,7 +78,7 @@
     
             </div>
             
-            <div class="stories">
+            <!-- <div class="stories">
                 <div class="dp-potrait">
                     <img src="images/dp.svg" alt="">
                 </div>
@@ -99,7 +107,7 @@
                     </p>
                  </div>
     
-            </div>
+            </div> -->
     </div>
         <div class="sideSection">
             <div class="createStories">
